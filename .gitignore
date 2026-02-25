@@ -1,0 +1,53 @@
+# Node dependencies
+node_modules/
+
+# Next.js build output
+.next/
+out/
+build/
+dist/
+
+# Next.js static files
+.next/static/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment files
+.env
+.env.*.local
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Vercel
+.vercel/
+
+# Local env
+.local
+
+# Editor directories and files
+.vscode/
+.idea/
+*.sublime-workspace
+
+# macOS
+.DS_Store
+
+# Yarn PnP
+.pnp.*
+
+# TypeScript
+*.tsbuildinfo
+
+# Coverage and cache
+coverage/
+.cache/
+.parcel-cache/
+
+# Misc
+*.log
