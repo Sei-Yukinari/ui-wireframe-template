@@ -1,0 +1,18 @@
+{
+  "colors": {
+    "primary": "#2563EB",
+    "primary-600": "#1E40AF",
+    "secondary": "#7C3AED",
+    "accent": "#FB7185",
+    "bg": "#F8FAFC",
+    "surface": "#FFFFFF",
+    "border": "#E6E9EE",
+    "text-primary": "#0F172A",
+    "text-secondary": "#475569",
+    "text-disabled": "#94A3B8",
+    "success": "#16A34A",
+    "warning": "#F59E0B",
+    "error": "#DC2626",
+    "info": "#0EA5E9"
+  }
+}
