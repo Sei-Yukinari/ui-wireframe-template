@@ -49,6 +49,34 @@
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.12);
 
+  /* === Motion Design Tokens === */
+  /* Duration */
+  --duration-fast: 100ms;
+  --duration-base: 150ms;
+  --duration-slow: 200ms;
+
+  /* Easing */
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-emphasize: cubic-bezier(0.2, 0, 0, 1.4);
+  --ease-decelerate: cubic-bezier(0, 0, 0, 1);
+
+  /* Scale */
+  --scale-hover: 1.02;
+  --scale-press: 0.97;
+
+  /* Distance */
+  --distance-y: 4px;
+  --distance-modal: 8px;
+
+  /* Opacity */
+  --opacity-disabled: 0.5;
+  --opacity-hover: 0.9;
+  --opacity-overlay: 0.5;
+
+  /* Blur */
+  --blur-sm: 4px;
+  --blur-md: 8px;
+
   /* === shadcn/ui Semantic Tokens (mapped to design tokens) === */
   --radius: 0.5rem;
   --background: #f8fafc;
@@ -163,6 +191,15 @@ body {
   --shadow-token-sm: var(--shadow-sm);
   --shadow-token-md: var(--shadow-md);
   --shadow-token-lg: var(--shadow-lg);
+
+  /* Motion tokens */
+  --transition-property-gpu: transform, opacity;
+  --animate-fade-in: fade-in var(--duration-base) var(--ease-decelerate);
+  --animate-fade-out: fade-out var(--duration-fast) var(--ease-standard);
+  --animate-slide-up: slide-up var(--duration-base) var(--ease-emphasize);
+  --animate-slide-down: slide-down var(--duration-base) var(--ease-standard);
+  --animate-scale-in: scale-in var(--duration-base) var(--ease-emphasize);
+  --animate-scale-out: scale-out var(--duration-fast) var(--ease-standard);
 }
 
 .dark {
@@ -218,5 +255,76 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* === Motion Keyframes === */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes slide-up {
+  from { transform: translateY(var(--distance-y)); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slide-down {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(var(--distance-y)); opacity: 0; }
+}
+
+@keyframes scale-in {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes scale-out {
+  from { transform: scale(1); opacity: 1; }
+  to { transform: scale(0.95); opacity: 0; }
+}
+
+/* === Motion Utilities === */
+@layer utilities {
+  .motion-gpu {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+  }
+  .transition-token {
+    transition-property: transform, opacity;
+    transition-duration: var(--duration-base);
+    transition-timing-function: var(--ease-standard);
+  }
+  .transition-token-fast {
+    transition-property: transform, opacity;
+    transition-duration: var(--duration-fast);
+    transition-timing-function: var(--ease-standard);
+  }
+  .hover-lift {
+    transition-property: transform, box-shadow;
+    transition-duration: var(--duration-base);
+    transition-timing-function: var(--ease-standard);
+  }
+  .hover-lift:hover {
+    transform: translateY(calc(var(--distance-y) * -1));
+  }
+  .press-scale:active {
+    transform: scale(var(--scale-press));
+  }
+}
+
+/* === prefers-reduced-motion === */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

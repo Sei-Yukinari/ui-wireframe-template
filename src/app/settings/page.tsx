@@ -7,6 +7,7 @@ import Sidebar from '@/components/Sidebar';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { LogOut } from 'lucide-react';
+import PageTransition from '@/components/PageTransition';
 
 export default function SettingsPage() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -17,6 +18,7 @@ export default function SettingsPage() {
       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       <main className="pt-14 md:ml-[260px]">
         <div className="p-4 md:p-6">
+          <PageTransition>
           <h1 className="mb-1 text-xl font-semibold">
             設定
           </h1>
@@ -54,6 +56,7 @@ export default function SettingsPage() {
               ログアウト
             </Link>
           </Button>
+          </PageTransition>
         </div>
       </main>
     </div>

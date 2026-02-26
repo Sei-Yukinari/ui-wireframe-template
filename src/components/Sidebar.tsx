@@ -21,7 +21,7 @@ export default function Sidebar({ isOpen, onClose }: { isOpen?: boolean; onClose
         />
       )}
       <aside
-        className={`fixed bottom-0 left-0 top-14 z-30 w-[260px] border-r border-surface-border bg-bg-muted p-4 transition-transform duration-200 md:translate-x-0 ${
+        className={`fixed bottom-0 left-0 top-14 z-30 w-[260px] border-r border-surface-border bg-bg-muted p-4 transition-transform duration-[--duration-slow] ease-[--ease-standard] md:translate-x-0 ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
@@ -33,7 +33,7 @@ export default function Sidebar({ isOpen, onClose }: { isOpen?: boolean; onClose
                 key={item.href}
                 href={item.href}
                 onClick={onClose}
-                className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors ${
+                className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-[color,background-color] duration-[--duration-fast] ease-[--ease-standard] ${
                   isActive
                     ? 'bg-bg-surface text-primary-600 shadow-token-sm'
                     : 'text-foreground-secondary hover:bg-surface-hover'

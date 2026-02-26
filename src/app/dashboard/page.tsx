@@ -6,11 +6,13 @@ import CreateTaskModal from '@/components/CreateTaskModal';
 import { Button } from '@/components/ui/button';
 import { Plus } from 'lucide-react';
 
+import PageTransition from '@/components/PageTransition';
+
 export default function DashboardPage() {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
-    <div>
+    <PageTransition>
       <div className="mb-6 flex items-center justify-between">
         <div>
           <h1 className="text-xl font-semibold">
@@ -27,6 +29,6 @@ export default function DashboardPage() {
       </div>
       <TaskList />
       <CreateTaskModal open={modalOpen} onClose={() => setModalOpen(false)} />
-    </div>
+    </PageTransition>
   );
 }

@@ -30,7 +30,7 @@ export default function TaskItem({
   return (
     <Link href={`/task/${id}`} className="group block">
       <Card
-        className={`gap-0 p-4 transition-all duration-150 hover:shadow-md hover:-translate-y-px ${isDone ? 'opacity-70' : ''}`}
+        className={`gap-0 p-4 transition-token hover-lift hover:shadow-md ${isDone ? 'opacity-70' : ''}`}
       >
         <div className="flex items-center gap-3">
           <div
