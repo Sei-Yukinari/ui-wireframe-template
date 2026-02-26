@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import TaskList from '@/components/TaskList';
 import CreateTaskModal from '@/components/CreateTaskModal';
+import { Button } from '@/components/ui/button';
+import { Plus } from 'lucide-react';
 
 export default function DashboardPage() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -18,32 +20,14 @@ export default function DashboardPage() {
             タスクを管理しましょう
           </p>
         </div>
-        <button
+        <Button
           onClick={() => setModalOpen(true)}
-          className="flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium text-white transition-colors"
           style={{ backgroundColor: 'var(--primary-500)' }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = 'var(--primary-600)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = 'var(--primary-500)';
-          }}
+          className="text-white hover:opacity-90"
         >
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <line x1="12" y1="5" x2="12" y2="19" />
-            <line x1="5" y1="12" x2="19" y2="12" />
-          </svg>
+          <Plus />
           タスクを追加
-        </button>
+        </Button>
       </div>
       <TaskList />
       <CreateTaskModal open={modalOpen} onClose={() => setModalOpen(false)} />
