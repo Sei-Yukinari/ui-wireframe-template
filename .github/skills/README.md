@@ -22,6 +22,7 @@ skills/
 ## 追加済みスキル
 
 - `create-pr` — コード変更からPull Requestを作成するスキル（Conventional Commits形式のコミット・PR本文生成）
+- `create-issue` — GitHub CLIを使ったIssue作成スキル（Issue template対応）
 
 ## 追加予定のスキル
 
@@ -31,4 +32,3 @@ skills/
 - `create-pr` — GitHub CLIを使ったPR作成スキル
 - `check-deps` — 依存関係の脆弱性チェックス
 - `prettier` — コードフォーマットスキル
-- `create-issue` — GitHub CLIを使ったIssue作成スキル
