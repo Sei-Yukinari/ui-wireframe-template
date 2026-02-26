@@ -30,24 +30,18 @@ export default function TaskItem({
   return (
     <Link href={`/task/${id}`} className="group block">
       <Card
-        className="gap-0 p-4 transition-all duration-150 hover:shadow-md hover:-translate-y-px"
-        style={{ opacity: isDone ? 0.7 : 1 }}
+        className={`gap-0 p-4 transition-all duration-150 hover:shadow-md hover:-translate-y-px ${isDone ? 'opacity-70' : ''}`}
       >
         <div className="flex items-center gap-3">
           <div
-            className="flex h-5 w-5 shrink-0 items-center justify-center rounded border"
-            style={{
-              borderColor: isDone ? '#16a34a' : 'var(--surface-border)',
-              backgroundColor: isDone ? '#16a34a' : 'transparent',
-            }}
+            className={`flex h-5 w-5 shrink-0 items-center justify-center rounded border ${
+              isDone ? 'border-green-600 bg-green-600' : 'border-surface-border'
+            }`}
           >
             {isDone && <Check className="size-3 text-white" strokeWidth={3} />}
           </div>
           <div className="min-w-0 flex-1">
-            <p
-              className={`text-sm font-medium ${isDone ? 'line-through' : ''}`}
-              style={{ color: isDone ? 'var(--muted-text)' : 'var(--foreground)' }}
-            >
+            <p className={`text-sm font-medium ${isDone ? 'line-through text-muted-foreground' : ''}`}>
               {title}
             </p>
             <div className="mt-1 flex items-center gap-2">
@@ -57,7 +51,7 @@ export default function TaskItem({
                 </Badge>
               )}
               {dueDate && (
-                <span className="flex items-center gap-0.5 text-xs" style={{ color: 'var(--muted-text)' }}>
+                <span className="flex items-center gap-0.5 text-xs text-muted-foreground">
                   <Calendar className="size-3" />
                   {dueDate}
                 </span>

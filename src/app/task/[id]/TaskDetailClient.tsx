@@ -23,7 +23,7 @@ export default function TaskDetailClient({
   const colors = statusColors[task.status] ?? statusColors['Todo'];
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: 'var(--bg-default)' }}>
+    <div className="min-h-screen bg-background">
       <Header onMenuToggle={() => setSidebarOpen(!sidebarOpen)} />
       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       <main className="pt-14 md:ml-[260px]">
@@ -34,7 +34,7 @@ export default function TaskDetailClient({
           <Card>
             <CardContent className="p-6">
               <div className="mb-4 flex items-start justify-between">
-                <h1 className="text-lg font-semibold" style={{ color: 'var(--foreground)' }}>
+                <h1 className="text-lg font-semibold">
                   {task.title}
                 </h1>
                 <Badge
@@ -44,16 +44,13 @@ export default function TaskDetailClient({
                   {task.status}
                 </Badge>
               </div>
-              <p className="mb-6 text-sm leading-relaxed" style={{ color: 'var(--foreground-secondary)' }}>
+              <p className="mb-6 text-sm leading-relaxed text-muted-foreground">
                 {task.description}
               </p>
-              <div
-                className="flex flex-wrap gap-4 border-t pt-4"
-                style={{ borderColor: 'var(--surface-border)' }}
-              >
-                <div className="flex items-center gap-2">
-                  <Calendar className="size-4" style={{ color: 'var(--muted-text)' }} />
-                  <span className="text-sm" style={{ color: 'var(--muted-text)' }}>
+              <div className="flex flex-wrap gap-4 border-t pt-4">
+                <div className="flex items-center gap-2 text-muted-foreground">
+                  <Calendar className="size-4" />
+                  <span className="text-sm">
                     期限: {task.dueDate}
                   </span>
                 </div>

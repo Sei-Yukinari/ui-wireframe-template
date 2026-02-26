@@ -13,18 +13,14 @@ export default function DashboardPage() {
     <div>
       <div className="mb-6 flex items-center justify-between">
         <div>
-          <h1 className="text-xl font-semibold" style={{ color: 'var(--foreground)' }}>
+          <h1 className="text-xl font-semibold">
             Dashboard
           </h1>
-          <p className="mt-1 text-sm" style={{ color: 'var(--muted-text)' }}>
+          <p className="mt-1 text-sm text-muted-foreground">
             タスクを管理しましょう
           </p>
         </div>
-        <Button
-          onClick={() => setModalOpen(true)}
-          style={{ backgroundColor: 'var(--primary-500)' }}
-          className="text-white hover:opacity-90"
-        >
+        <Button onClick={() => setModalOpen(true)}>
           <Plus />
           タスクを追加
         </Button>

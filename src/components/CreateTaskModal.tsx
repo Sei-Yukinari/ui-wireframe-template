@@ -38,8 +38,8 @@ export default function CreateTaskModal({ open, onClose }: { open: boolean; onCl
         </DialogHeader>
         <div className="flex flex-col gap-4">
           <div>
-            <label className="mb-1.5 block text-sm font-medium" style={{ color: 'var(--foreground-secondary)' }}>
-              タイトル <span style={{ color: 'var(--danger-500)' }}>*</span>
+            <label className="mb-1.5 block text-sm font-medium text-muted-foreground">
+              タイトル <span className="text-destructive">*</span>
             </label>
             <Input
               type="text"
@@ -52,19 +52,19 @@ export default function CreateTaskModal({ open, onClose }: { open: boolean; onCl
               placeholder="タスクのタイトルを入力"
             />
             {showError && (
-              <p className="mt-1 text-xs" style={{ color: 'var(--danger-500)' }}>
+              <p className="mt-1 text-xs text-destructive">
                 タイトルは必須です
               </p>
             )}
           </div>
           <div>
-            <label className="mb-1.5 block text-sm font-medium" style={{ color: 'var(--foreground-secondary)' }}>
+            <label className="mb-1.5 block text-sm font-medium text-muted-foreground">
               詳細
             </label>
             <Textarea rows={3} placeholder="タスクの詳細を入力" />
           </div>
           <div>
-            <label className="mb-1.5 block text-sm font-medium" style={{ color: 'var(--foreground-secondary)' }}>
+            <label className="mb-1.5 block text-sm font-medium text-muted-foreground">
               期限
             </label>
             <Input type="date" />
@@ -74,11 +74,7 @@ export default function CreateTaskModal({ open, onClose }: { open: boolean; onCl
           <Button variant="outline" onClick={handleClose}>
             キャンセル
           </Button>
-          <Button
-            onClick={handleSave}
-            style={{ backgroundColor: 'var(--primary-500)' }}
-            className="text-white hover:opacity-90"
-          >
+          <Button onClick={handleSave}>
             保存
           </Button>
         </DialogFooter>

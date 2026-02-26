@@ -46,19 +46,18 @@ export default function TaskList() {
 
   return (
     <div>
-      <div className="mb-4 flex gap-1 rounded-lg p-1" style={{ backgroundColor: 'var(--bg-muted)' }}>
+      <div className="mb-4 flex gap-1 rounded-lg bg-muted p-1">
         {filters.map((filter) => (
           <Button
             key={filter}
             variant={activeFilter === filter ? 'secondary' : 'ghost'}
             size="sm"
             onClick={() => setActiveFilter(filter)}
-            className="text-xs"
-            style={{
-              backgroundColor: activeFilter === filter ? 'var(--bg-surface)' : 'transparent',
-              color: activeFilter === filter ? 'var(--primary-600)' : 'var(--muted-text)',
-              boxShadow: activeFilter === filter ? 'var(--shadow-sm)' : 'none',
-            }}
+            className={`text-xs ${
+              activeFilter === filter
+                ? 'bg-bg-surface text-primary-600 shadow-token-sm'
+                : 'text-muted-foreground'
+            }`}
           >
             {filter}
           </Button>
@@ -66,8 +65,7 @@ export default function TaskList() {
       </div>
       {filteredTasks.length === 0 ? (
         <div
-          className="flex flex-col items-center justify-center rounded-lg border-2 border-dashed py-12"
-          style={{ borderColor: 'var(--surface-border)', color: 'var(--muted-text)' }}
+          className="flex flex-col items-center justify-center rounded-lg border-2 border-dashed border-surface-border py-12 text-muted-foreground"
         >
           <FilePlus className="mb-3 size-10 opacity-50" strokeWidth={1.5} />
           <p className="text-sm font-medium">タスクがありません</p>
